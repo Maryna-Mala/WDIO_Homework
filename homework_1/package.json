@@ -12,8 +12,7 @@
     "globals": "^15.9.0"
   },
   "scripts": {
-    "test": "npx wdio run src/config/wdio.conf.js --spec test/specs/*.js",
-    "lint": "npx eslint"
+    "test": "npx wdio run src/config/wdio.conf.js --spec test/specs/*.js"
   },
   "dependencies": {
     "dotenv": "^16.4.5"

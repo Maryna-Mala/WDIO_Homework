@@ -18,7 +18,12 @@ export const config = {
         {
             browserName: 'chrome',
             'goog:chromeOptions': { 
-                args: [/*'--headless',*/ '--disable-gpu', '--window-size=1920,1080']
+                args: [
+                    '--disable-gpu', 
+                    '--window-size=1920,1080',
+                    '--no-sandbox', // добавлено для обхода ограничений безопасности
+                    '--disable-dev-shm-usage' // добавлено для ситуаций с ограниченной памятью
+                ]
             } 
         },
         {
