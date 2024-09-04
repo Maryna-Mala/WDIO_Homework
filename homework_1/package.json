@@ -14,6 +14,7 @@
     "test": "npx wdio run src/config/wdio.conf.js --spec test/specs/*.js"
   },
   "dependencies": {
+    "chromedriver": "^128.0.1",
     "dotenv": "^16.4.5",
     "glob": "^11.0.0",
     "lru-cache": "^11.0.0"

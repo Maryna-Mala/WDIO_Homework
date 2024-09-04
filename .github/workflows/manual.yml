@@ -3,30 +3,44 @@ name: Manual run
 on: workflow_dispatch
 
 jobs:
-    wdio-test:
-        runs-on: ubuntu-latest
+  wdio-test:
+    runs-on: ubuntu-latest
 
-        strategy:
-            matrix:
-                node-version: [22]
+    strategy:
+      matrix:
+        node-version: [22]
 
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v3
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-            - name: Set up Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ matrix.node-version }}
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
 
-            - name: Install dependencies
-              run: npm install
-              working-directory: homework_1/
+      - name: Install dependencies
+        run: npm install
+        working-directory: homework_1/
 
-            - name: Run Tests
-              run: npm run test
-              working-directory: homework_1/
-              env:
-                  LOGIN_EMAIL: ${{ secrets.LOGIN_EMAIL }}
-                  VALID_PASSWORD: ${{ secrets.VALID_PASSWORD }}
-                  INVALID_PASSWORD: ${{ secrets.INVALID_PASSWORD }}
+      - name: Install Chrome and Firefox
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget
+          sudo apt install -y firefox
+          curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o chrome.deb
+          sudo apt install -y ./chrome.deb
+          sudo rm ./chrome.deb
+
+      - name: Setup WebDriver
+        run: |
+          npm install chromedriver@latest geckodriver@latest
+        working-directory: homework_1/
+
+      - name: Run Tests
+        run: npm run test
+        working-directory: homework_1/
+        env:
+          LOGIN_EMAIL: ${{ secrets.LOGIN_EMAIL }}
+          VALID_PASSWORD: ${{ secrets.VALID_PASSWORD }}
+          INVALID_PASSWORD: ${{ secrets.INVALID_PASSWORD }}
