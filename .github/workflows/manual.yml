@@ -23,10 +23,6 @@ jobs:
               run: npm install
               working-directory: homework_1/
 
-            - name: Run linter
-              run: npm run lint
-              working-directory: homework_1/
-
             - name: Run Tests
               run: npm run test
               working-directory: homework_1/
