@@ -14,7 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js ${{ matrix.node-version }}
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
@@ -23,19 +23,17 @@ jobs:
         run: npm install
         working-directory: homework_1/
 
-      - name: Install Chrome and Firefox
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget
-          sudo apt install -y firefox
-          curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o chrome.deb
-          sudo apt install -y ./chrome.deb
-          sudo rm ./chrome.deb
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@v1
 
-      - name: Setup WebDriver
-        run: |
-          npm install chromedriver@latest geckodriver@latest
-        working-directory: homework_1/
+      - name: Check Chrome Version
+        run: google-chrome --version
+
+      - name: Install Firefox
+        uses: browser-actions/setup-firefox@v1
+
+      - name: Check Firefox Version
+        run: firefox --version
 
       - name: Run Tests
         run: npm run test
