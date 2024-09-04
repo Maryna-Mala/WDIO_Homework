@@ -21,11 +21,11 @@ jobs:
 
             - name: Install dependencies
               run: npm install
-              working-directory: src/
+              working-directory: homework_1/
 
             - name: Run Tests
               run: npm run test
-              working-directory: src/
+              working-directory: homework_1/
               env:
                   LOGIN_EMAIL: ${{ secrets.USER_NAME }}
                   VALID_PASSWORD: ${{ secrets.USER_PASSWORD }}
