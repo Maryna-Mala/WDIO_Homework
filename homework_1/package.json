@@ -1,0 +1,16 @@
+{
+  "name": "homework_1",
+  "type": "module",
+  "devDependencies": {
+    "@wdio/local-runner": "^9.0.5",
+    "@wdio/mocha-framework": "^9.0.5",
+    "@wdio/spec-reporter": "^9.0.4",
+    "chai": "^5.1.1"
+  },
+  "scripts": {
+    "test": "wdio run src/config/wdio.conf.js --spec test/specs/*.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
