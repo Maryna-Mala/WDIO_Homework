@@ -3,7 +3,7 @@ name: Manual run
 on: workflow_dispatch
 
 jobs:
-    cypress-test:
+    wdio-test:
         runs-on: ubuntu-latest
 
         strategy:
@@ -23,7 +23,7 @@ jobs:
               run: npm install
 
             - name: Run Tests
-              run: npm run test:run
+              run: npm run test
               env:
                   LOGIN_EMAIL: ${{ secrets.USER_NAME }}
                   VALID_PASSWORD: ${{ secrets.USER_PASSWORD }}
