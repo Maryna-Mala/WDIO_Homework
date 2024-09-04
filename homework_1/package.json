@@ -9,7 +9,7 @@
     "chai": "^5.1.1"
   },
   "scripts": {
-    "test": "wdio run src/config/wdio.conf.js --spec test/specs/*.js"
+    "test": "npx wdio run src/config/wdio.conf.js --spec test/specs/*.js"
   },
   "dependencies": {
     "dotenv": "^16.4.5"
