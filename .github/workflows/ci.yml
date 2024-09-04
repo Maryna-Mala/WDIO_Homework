@@ -1,0 +1,53 @@
+name: CI/CD Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  wdio-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [22]
+
+    steps:
+    
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: homework_1/
+
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Check Chrome Version
+        run: google-chrome --version
+
+      - name: Install Firefox
+        uses: browser-actions/setup-firefox@v1
+
+      - name: Check Firefox Version
+        run: firefox --version
+
+      - name: Run Tests
+        run: npm run test
+        working-directory: homework_1/
+        env:
+          LOGIN_EMAIL: ${{ secrets.LOGIN_EMAIL }}
+          VALID_PASSWORD: ${{ secrets.VALID_PASSWORD }}
+          INVALID_PASSWORD: ${{ secrets.INVALID_PASSWORD }}
