@@ -27,6 +27,6 @@ jobs:
               run: npm run test
               working-directory: homework_1/
               env:
-                  LOGIN_EMAIL: ${{ secrets.USER_NAME }}
-                  VALID_PASSWORD: ${{ secrets.USER_PASSWORD }}
-                  INVALID_PASSWORD: ${{ secrets.USER_PASSWORD }}
+                  LOGIN_EMAIL: ${{ secrets.LOGIN_EMAIL }}
+                  VALID_PASSWORD: ${{ secrets.VALID_PASSWORD }}
+                  INVALID_PASSWORD: ${{ secrets.INVALID_PASSWORD }}
