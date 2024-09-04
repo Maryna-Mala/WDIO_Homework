@@ -1,0 +1,32 @@
+name: CI/CD Pipeline
+
+on:
+    pull_request:
+        branches:
+            - master
+
+jobs:
+    lint-and-test:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [18]
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Set up Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Run Tests
+              run: npm test
+              env:
+                  CYPRESS_USER_NAME: ${{ secrets.USER_NAME }}
+                  CYPRESS_USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
