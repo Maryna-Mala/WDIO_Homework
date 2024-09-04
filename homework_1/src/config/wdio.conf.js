@@ -24,12 +24,7 @@ export const config = {
         {
             browserName: 'firefox',
             'moz:firefoxOptions': {
-                args: ['-headless'],
-                prefs: {
-                    'browser.download.folderList': 2,
-                    'browser.download.dir': '/tmp',
-                    'browser.helperApps.neverAsk.saveToDisk': 'application/octet-stream'
-                }
+                args: ['-headless']
             }
         }
     ],
