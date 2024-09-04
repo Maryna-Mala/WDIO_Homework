@@ -1,7 +1,10 @@
 name: Manual run
 
 on: workflow_dispatch
-
+env:
+          LOGIN_EMAIL: ${{ secrets.LOGIN_EMAIL }}
+          VALID_PASSWORD: ${{ secrets.VALID_PASSWORD }}
+          INVALID_PASSWORD: ${{ secrets.INVALID_PASSWORD }}
 jobs:
   wdio-test:
     runs-on: ubuntu-latest
@@ -11,6 +14,7 @@ jobs:
         node-version: [22]
 
     steps:
+    
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -38,7 +42,3 @@ jobs:
       - name: Run Tests
         run: npm run test
         working-directory: homework_1/
-        env:
-          LOGIN_EMAIL: ${{ secrets.LOGIN_EMAIL }}
-          VALID_PASSWORD: ${{ secrets.VALID_PASSWORD }}
-          INVALID_PASSWORD: ${{ secrets.INVALID_PASSWORD }}
