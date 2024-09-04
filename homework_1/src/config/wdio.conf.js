@@ -128,11 +128,11 @@ export const config = {
              await browser.url(`https://trello.com/`)
              await $('//a[text()="Log in"]').click()
 
-             await $('#username').setValue('marinamalaa0@gmail.com')
+             await $('#username').setValue(process.env.LOGIN_EMAIL)
              await $('#login-submit').click()
      
              const passwordInput = await $('#password') 
-             await passwordInput.setValue('TestUser124529')
+             await passwordInput.setValue(process.env.VALID_PASSWORD)
      
              await $('#login-submit').click()
     });
