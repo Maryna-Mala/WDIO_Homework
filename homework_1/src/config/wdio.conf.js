@@ -125,7 +125,7 @@ export const config = {
         // Comment why this command is getting added and what it is supposed to do
          browser.addCommand('LogInWithValidCredentials', async function() {
  
-             await browser.url(`https://trello.com/home`)
+             await browser.url(`https://trello.com/`)
              await $('//a[text()="Log in"]').click()
 
              await $('#username').setValue(process.env.LOGIN_EMAIL)

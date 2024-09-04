@@ -2,14 +2,18 @@
   "name": "homework_1",
   "type": "module",
   "devDependencies": {
+    "@eslint/js": "^9.9.1",
     "@wdio/cli": "^9.0.7",
     "@wdio/local-runner": "^9.0.5",
     "@wdio/mocha-framework": "^9.0.5",
     "@wdio/spec-reporter": "^9.0.4",
-    "chai": "^5.1.1"
+    "chai": "^5.1.1",
+    "eslint": "^9.9.1",
+    "globals": "^15.9.0"
   },
   "scripts": {
-    "test": "npx wdio run src/config/wdio.conf.js --spec test/specs/*.js"
+    "test": "npx wdio run src/config/wdio.conf.js --spec test/specs/*.js",
+    "lint": "npx eslint"
   },
   "dependencies": {
     "dotenv": "^16.4.5"
