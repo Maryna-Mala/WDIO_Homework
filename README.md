@@ -53,8 +53,18 @@ To execute the test cases in the WDIO project using headless mode, follow these 
     
     This will also generate the Spec report in the console and HTML reports in the `./reports/html-reports/` directory.
 
+2. **Run Linting and Formatting Checks**
 
-2. **Run Tests Manually**
+    Ensure your code adheres to set standards before running tests:
+
+    To run Eslint: `npm run lint`
+
+    To check formatting with Prettier: `npm run prettier:check`
+
+    To auto-format files with Prettier: `npm run prettier:write`
+
+
+3. **Run Tests Manually**
 
     To run tests manually, you can do it straight in the GitHub Actions:
 
