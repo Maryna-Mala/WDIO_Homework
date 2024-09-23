@@ -1,7 +1,9 @@
 /*global $*/
 class AddCard {
-    createCardButton() {
-        return $('//button[@data-testid="list-add-card-button"]').click()
+    async createCardButton() {
+        const cardButton = $('//button[@data-testid="list-add-card-button"]')
+        await cardButton.waitForDisplayed()
+        await cardButton.click()
     }
 
     setCardTitle() {
