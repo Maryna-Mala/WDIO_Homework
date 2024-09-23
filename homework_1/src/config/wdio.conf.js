@@ -18,7 +18,7 @@ export const config = {
         {
             browserName: 'chrome',
             'goog:chromeOptions': { 
-                args: ['--headless','--disable-gpu', '--window-size=1920,1080']
+                args: [/*'--headless',*/ '--disable-gpu', '--window-size=1920,1080']
             } 
         },
         {
