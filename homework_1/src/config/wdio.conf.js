@@ -38,8 +38,13 @@ export const config = {
     connectionRetryCount: 3,
     framework: 'mocha',
     chai: true,
-    reporters: ['spec'],
-
+    reporters: ['spec',
+        ['html-nice', {
+            outputDir: './reports/html-reports/',
+            filename: 'report.html',
+            reportTitle: 'Test Report Title'
+        }]
+    ],
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
