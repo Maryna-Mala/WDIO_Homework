@@ -1,29 +1,36 @@
 {
-  "name": "homework_1",
-  "type": "module",
-  "devDependencies": {
-    "@eslint/js": "^9.9.1",
-    "@wdio/cli": "^9.0.7",
-    "@wdio/local-runner": "^9.0.5",
-    "@wdio/mocha-framework": "^9.0.5",
-    "@wdio/spec-reporter": "^9.0.8",
-    "chai": "^5.1.1",
-    "globals": "^15.9.0",
-    "mocha": "^10.7.3",
-    "wdio-html-nice-reporter": "^8.1.6"
-  },
-  "scripts": {
-    "test": "wdio run src/config/wdio.conf.js",
-    "clean-reports": "rimraf ./reports/*",
-    "pretest": "npm run clean-reports"
-  },
-  "dependencies": {
-    "20": "^3.1.9",
-    "@rpii/wdio-html-reporter-pdf": "~7.0.0",
-    "chromedriver": "^128.0.1",
-    "dotenv": "^16.4.5",
-    "glob": "^11.0.0",
-    "lru-cache": "^11.0.0",
-    "wdio-html-reporter": "^1.0.2"
-  }
+    "name": "homework_1",
+    "type": "module",
+    "devDependencies": {
+        "@eslint/js": "^9.9.1",
+        "@wdio/cli": "^9.0.7",
+        "@wdio/local-runner": "^9.0.5",
+        "@wdio/mocha-framework": "^9.0.5",
+        "@wdio/spec-reporter": "^9.0.8",
+        "chai": "^5.1.1",
+        "eslint": "^9.11.0",
+        "globals": "^15.9.0",
+        "mocha": "^10.7.3",
+        "prettier": "3.3.3",
+        "wdio-html-nice-reporter": "^8.1.6"
+    },
+    "scripts": {
+        "test": "wdio run src/config/wdio.conf.js",
+        "clean-reports": "rimraf ./reports/*",
+        "pretest": "npm run clean-reports",
+        "lint": "npx eslint",
+        "prettier:check": "npx prettier . --check",
+        "prettier:write": "npx prettier . --write"
+    },
+    "dependencies": {
+        "20": "^3.1.9",
+        "@rpii/wdio-html-reporter-pdf": "~7.0.0",
+        "chromedriver": "^128.0.1",
+        "dotenv": "^16.4.5",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-wdio": "^9.0.8",
+        "glob": "^11.0.0",
+        "lru-cache": "^11.0.0",
+        "wdio-html-reporter": "^1.0.2"
+    }
 }

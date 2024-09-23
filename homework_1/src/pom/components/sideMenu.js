@@ -1,5 +1,6 @@
+/*global $*/
 class SideMenu {
-    accountAndVisibility () {
+    accountAndVisibility() {
         return $('//a[@data-testid="account-menu-profile"]').click()
     }
 }

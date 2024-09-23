@@ -1,3 +1,4 @@
+/*global describe, it, beforeEach, process*/
 import { expect } from 'chai'
 
 import { homePage } from '../../src/pom/pages/home.page.js'
@@ -18,6 +19,6 @@ describe('Trello log in', () => {
     it('Login with  existent account and invalid password', async () => {
         await homePage.logInModal.invalidPassword(process.env.INVALID_PASSWORD)
         await homePage.logInModal.submitButton()
-        expect(await homePage.logInModal.passwordInput.isDisplayed()).to.be.true;
+        expect(await homePage.logInModal.passwordInput.isDisplayed()).to.be.true
     })
-}) 
+})

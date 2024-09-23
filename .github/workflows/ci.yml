@@ -31,6 +31,12 @@ jobs:
       - name: Install dependencies
         run: npm install
         working-directory: homework_1/
+      
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Prettier
+        run: npm run prettier:write
 
       - name: Install Chrome
         uses: browser-actions/setup-chrome@v1

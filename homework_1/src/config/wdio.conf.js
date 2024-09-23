@@ -1,14 +1,13 @@
+/* eslint-disable no-undef */
 import dotenv from 'dotenv'
 
 dotenv.config({
-    path: '../.env'
+    path: '../.env',
 })
 
 export const config = {
     runner: 'local',
-    specs: [
-        '../../test/specs/*.js'
-    ],
+    specs: ['../../test/specs/*.js'],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -17,16 +16,20 @@ export const config = {
     capabilities: [
         {
             browserName: 'chrome',
-            'goog:chromeOptions': { 
-                args: ['--headless', '--disable-gpu', '--window-size=1920,1080']
-            } 
+            'goog:chromeOptions': {
+                args: [
+                    '--headless',
+                    '--disable-gpu',
+                    '--window-size=1920,1080',
+                ],
+            },
         },
         {
             browserName: 'firefox',
             'moz:firefoxOptions': {
-                args: ['-headless']
-            }
-        }
+                args: ['-headless'],
+            },
+        },
     ],
     logLevel: 'error',
     bail: 0,
@@ -38,19 +41,23 @@ export const config = {
     connectionRetryCount: 3,
     framework: 'mocha',
     chai: true,
-    reporters: ['spec',
-        ['html-nice', {
-            outputDir: './reports/html-reports/',
-            filename: 'report.html',
-            reportTitle: 'Test Report Title'
-        }]
+    reporters: [
+        'spec',
+        [
+            'html-nice',
+            {
+                outputDir: './reports/html-reports/',
+                filename: 'report.html',
+                reportTitle: 'Test Report Title',
+            },
+        ],
     ],
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
         timeout: 60000,
-        retries: 2
+        retries: 2,
     },
 
     //
@@ -125,23 +132,22 @@ export const config = {
      */
     // beforeTest: function (test, context) {
     // },
-    
-    before: function(capabilities, specs) {
-        // Comment why this command is getting added and what it is supposed to do
-         browser.addCommand('LogInWithValidCredentials', async function() {
- 
-             await browser.url(`https://trello.com/`)
-             await $('//a[text()="Log in"]').click()
 
-             await $('#username').setValue(process.env.LOGIN_EMAIL)
-             await $('#login-submit').click()
-     
-             const passwordInput = await $('#password') 
-             await passwordInput.setValue(process.env.VALID_PASSWORD)
-     
-             await $('#login-submit').click()
-    });
-     },
+    before: function (capabilities, specs) {
+        // Comment why this command is getting added and what it is supposed to do
+        browser.addCommand('LogInWithValidCredentials', async function () {
+            await browser.url(`https://trello.com/`)
+            await $('//a[text()="Log in"]').click()
+
+            await $('#username').setValue(process.env.LOGIN_EMAIL)
+            await $('#login-submit').click()
+
+            const passwordInput = await $('#password')
+            await passwordInput.setValue(process.env.VALID_PASSWORD)
+
+            await $('#login-submit').click()
+        })
+    },
     /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)
@@ -155,11 +161,15 @@ export const config = {
     // afterHook: function (test, context, { error, result, duration, passed, retries }, hookName) {
     // },
 
-    afterTest: function(test, context, { error, result, duration, passed, retries }) {
+    afterTest: function (
+        test,
+        context,
+        { error, result, duration, passed, retries }
+    ) {
         if (!passed) {
-            browser.saveScreenshot(`./errorShots/${test.title}.png`);
+            browser.saveScreenshot(`./errorShots/${test.title}.png`)
         }
-    }
+    },
     /**
      * Function to be executed after a test (in Mocha/Jasmine only)
      * @param {object}  test             test object
@@ -172,7 +182,6 @@ export const config = {
      */
     // afterTest: function(test, context, { error, result, duration, passed, retries }) {
     // },
-
 
     /**
      * Hook that gets executed after the suite has ended
@@ -217,22 +226,22 @@ export const config = {
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
     /**
-    * Gets executed when a refresh happens.
-    * @param {string} oldSessionId session ID of the old session
-    * @param {string} newSessionId session ID of the new session
-    */
+     * Gets executed when a refresh happens.
+     * @param {string} oldSessionId session ID of the old session
+     * @param {string} newSessionId session ID of the new session
+     */
     // onReload: function(oldSessionId, newSessionId) {
     // }
     /**
-    * Hook that gets executed before a WebdriverIO assertion happens.
-    * @param {object} params information about the assertion to be executed
-    */
+     * Hook that gets executed before a WebdriverIO assertion happens.
+     * @param {object} params information about the assertion to be executed
+     */
     // beforeAssertion: function(params) {
     // }
     /**
-    * Hook that gets executed after a WebdriverIO assertion happened.
-    * @param {object} params information about the assertion that was executed, including its results
-    */
+     * Hook that gets executed after a WebdriverIO assertion happened.
+     * @param {object} params information about the assertion that was executed, including its results
+     */
     // afterAssertion: function(params) {
     // }
 }

@@ -1,13 +1,14 @@
+/*global $*/
 class Header {
-    logInButton () {
+    logInButton() {
         return $('//a[text()="Log in"]').click()
     }
 
-    accountInfoButton () {
+    accountInfoButton() {
         return $('//button[@data-testid="header-member-menu-button"]').click()
     }
 
-    clickPlusButton () {
+    clickPlusButton() {
         return $("//button[@data-testid='header-create-menu-button']").click()
     }
 }

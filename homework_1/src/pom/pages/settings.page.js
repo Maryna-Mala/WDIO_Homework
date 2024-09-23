@@ -1,7 +1,7 @@
-import { pesonalInfo } from "../components/personalInfo.js"
+import { pesonalInfo } from '../components/personalInfo.js'
 
 class SettingsPage {
-    pesonalInfo = pesonalInfo;
+    pesonalInfo = pesonalInfo
 }
 
 export const settingsPage = new SettingsPage()

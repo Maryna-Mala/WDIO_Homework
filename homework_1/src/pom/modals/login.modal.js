@@ -1,10 +1,10 @@
+/*global $*/
 class LogInModal {
-
-    async logInInput (LOGIN_EMAIL) {
+    async logInInput(LOGIN_EMAIL) {
         return $('#username').setValue(LOGIN_EMAIL)
     }
 
-    get passwordInput () {
+    get passwordInput() {
         return $('#password')
     }
 
@@ -12,11 +12,11 @@ class LogInModal {
         return this.passwordInput.setValue(VALID_PASSWORD)
     }
 
-    invalidPassword (INVALID_PASSWORD) {
+    invalidPassword(INVALID_PASSWORD) {
         return this.passwordInput.setValue(INVALID_PASSWORD)
     }
 
-    submitButton () {
+    submitButton() {
         return $('#login-submit').click()
     }
 }

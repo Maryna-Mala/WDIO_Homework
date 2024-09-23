@@ -1,22 +1,24 @@
+/*global $*/
 class CreateBoardModal {
-
-    createBoard () {
-        return $('[data-testid="header-create-board-button"]').click() 
+    createBoard() {
+        return $('[data-testid="header-create-board-button"]').click()
     }
 
     setBoardTitle() {
-        return $('//input[@data-testid="create-board-title-input"]').setValue('test board')
+        return $('//input[@data-testid="create-board-title-input"]').setValue(
+            'test board'
+        )
     }
 
-    clickSubmitButton () {
-        return $ ('//button[@data-testid="create-board-submit-button"]').click()
+    clickSubmitButton() {
+        return $('//button[@data-testid="create-board-submit-button"]').click()
     }
 
-    get boardName () {
+    get boardName() {
         return $('//h1[@data-testid="board-name-display"]')
     }
 
-    isBoardNameDisplayed () {
+    isBoardNameDisplayed() {
         return this.boardName.waitForDisplayed()
     }
 }

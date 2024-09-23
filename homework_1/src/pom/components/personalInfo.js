@@ -1,13 +1,14 @@
+/*global $*/
 class PesonalInfo {
-    get bioTextarea () {
+    get bioTextarea() {
         return $('#bio')
     }
 
-    bioSetValue () {
+    bioSetValue() {
         return this.bioTextarea.setValue('Welcome to my free account')
     }
 
-    saveButton () {
+    saveButton() {
         return $('//button[@type="submit"]').click()
     }
 }
