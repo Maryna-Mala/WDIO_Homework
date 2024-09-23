@@ -50,6 +50,8 @@ To execute the test cases in the WDIO project using headless mode, follow these 
     You can run tests directly in the terminal without a GUI, which is faster and useful for CI/CD pipelines:
 
     `npm run test`
+    
+    This will also generate the Spec report in the console and HTML reports in the `./reports/html-reports/` directory.
 
 
 2. **Run Tests Manually**
@@ -60,6 +62,26 @@ To execute the test cases in the WDIO project using headless mode, follow these 
     - In the sidemenu choose "Manual run" workflow
     - Click on the "Run workflow" and choose the appropriate branch
 
+
+## Reports Configuration and Viewing
+
+This project is configured to generate test reports in two formats: **Spec** and **HTML** to provide detailed insights into the test execution process.
+
+### Spec Reporter
+
+The Spec reporter outputs the test results in the console, allowing for quick iteration and debugging directly from the terminal. This is particularly useful during development and local testing phases.
+
+### HTML Reporter
+
+An HTML report provides a more detailed and visual insight into the test execution. Reports are generated after each test run and saved to `./reports/html-reports/`.
+
+#### Viewing HTML Reports
+
+To view the HTML reports, navigate to the `./reports/html-reports/` directory and open the `report.html` file in your web browser. This report will give you a visual breakdown of your test results, including test cases, status, and log details for failed tests.
+
+#### Managing Report Artifacts
+
+Report files are excluded from version control to keep the repository clean and focused on source code. However, historical reports are maintained locally to assist in debugging and review of past test results. Ensure to clean up or archive old reports as necessary.
 ## Contributors
 
     This project is developed and maintained by the following contributor:
