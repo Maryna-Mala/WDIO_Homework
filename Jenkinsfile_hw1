@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+     
+    environment {
+        PATH = "/Users/marynamala/.yarn/bin:/Users/marynamala/.config/yarn/global/node_modules/.bin:/Users/marynamala/.nvm/versions/node/v20.17.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/marynamala/.nvm/versions/node/v20.17.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin"
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/Maryna-Mala/WDIO_Homework.git'
+
+                dir('homework_1') {
+                    sh 'node -v'
+                    sh "npm install"
+                    
+                    withCredentials([string(credentialsId: 'LOGIN_EMAIL', variable: 'LOGIN_EMAIL'), string(credentialsId: 'VALID_PASSWORD', variable: 'VALID_PASSWORD'), string(credentialsId: 'INVALID_PASSWORD', variable: 'INVALID_PASSWORD')]) {
+                    sh "npm run test -- --email=$LOGIN_EMAIL --password=$VALID_PASSWORD "
+                }
+                }
+            }
+        }
+    }
+}
