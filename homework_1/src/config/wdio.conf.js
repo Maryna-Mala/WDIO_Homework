@@ -7,7 +7,7 @@ dotenv.config({
 
 export const config = {
     runner: 'local',
-    specs: ['../../test/specs/*.js'],
+    specs: ['../../test/features/*.feature'],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -18,8 +18,8 @@ export const config = {
             browserName: 'chrome',
             'goog:chromeOptions': {
                 args: [
-                    '--headless',
-                    '--disable-gpu',
+                    /* '--headless',
+                    '--disable-gpu', */
                     '--window-size=1920,1080',
                 ],
             },
@@ -39,7 +39,7 @@ export const config = {
     //
     // Default request retries count
     connectionRetryCount: 3,
-    framework: 'mocha',
+    framework: 'cucumber',
     chai: true,
     reporters: [
         'spec',
@@ -52,14 +52,21 @@ export const config = {
             },
         ],
     ],
-    // Options to be passed to Mocha.
-    // See the full list at http://mochajs.org/
-    mochaOpts: {
-        ui: 'bdd',
-        timeout: 60000,
-        retries: 2,
+    // Options to be passed to Cucumber.
+    cucumberOpts: {
+        require: ['./test/features/step-definitions/*.js'], // Path to your step definitions
+        backtrace: true, // Firstly ensure you enable backtrace for better error logs
+        dryRun: false,
+        failFast: false,
+        format: ['pretty'], // Check if 'pretty' needs to be changed to a supported format
+        snippets: true,
+        source: true,
+        profile: [],
+        strict: false, // Modify based on your need
+        tagExpression: '', // Add if you need to execute specific tags
+        timeout: 60000, // Adjust according to your needs
+        ignoreUndefinedDefinitions: true // Set to false if you want strict checking of step definitions
     },
-
     //
     // =====
     // Hooks
