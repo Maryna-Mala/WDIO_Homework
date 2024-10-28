@@ -24,12 +24,12 @@ export const config = {
                 ],
             },
         },
-        {
+        /* {
             browserName: 'firefox',
             'moz:firefoxOptions': {
                 args: ['-headless'],
             },
-        },
+        }, */
     ],
     logLevel: 'error',
     bail: 0,
@@ -54,7 +54,7 @@ export const config = {
     ],
     // Options to be passed to Cucumber.
     cucumberOpts: {
-        require: ['./test/features/step-definitions/*.js'], // Path to your step definitions
+        require: ['./test/features/step-definitions/*.steps.js'], // Path to your step definitions
         backtrace: true, // Firstly ensure you enable backtrace for better error logs
         dryRun: false,
         failFast: false,

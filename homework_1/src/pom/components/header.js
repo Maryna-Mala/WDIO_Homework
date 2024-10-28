@@ -8,8 +8,10 @@ class Header {
         return $('//button[@data-testid="header-member-menu-button"]').click()
     }
 
-    clickPlusButton() {
-        return $("//button[@data-testid='header-create-menu-button']").click()
+    async clickPlusButton() {
+        const plusButton = $("//button[@data-testid='header-create-menu-button']")
+        await plusButton.waitForDisplayed()
+        await plusButton.click()
     }
 }
 

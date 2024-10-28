@@ -8,12 +8,14 @@ class LogInModal {
         return $('#password')
     }
 
-    validPassword(VALID_PASSWORD) {
-        return this.passwordInput.setValue(VALID_PASSWORD)
+    async validPassword(VALID_PASSWORD) {
+        await this.passwordInput.waitForDisplayed()
+        await this.passwordInput.setValue(VALID_PASSWORD)
     }
 
-    invalidPassword(INVALID_PASSWORD) {
-        return this.passwordInput.setValue(INVALID_PASSWORD)
+    async invalidPassword(INVALID_PASSWORD) {
+        await this.passwordInput.waitForDisplayed()
+        await this.passwordInput.setValue(INVALID_PASSWORD)
     }
 
     submitButton() {
