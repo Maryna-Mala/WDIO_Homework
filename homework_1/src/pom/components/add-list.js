@@ -10,10 +10,9 @@ class AddList {
         )
     }
 
-    addListButton() {
-        return $(
-            '//button[@data-testid="list-composer-add-list-button"]'
-        ).click()
+    async addListButton() {
+        await $('//button[@data-testid="list-composer-add-list-button"]').scrollIntoView()
+        await $('//button[@data-testid="list-composer-add-list-button"]').click()
     }
 
     get isListDisplayed() {
