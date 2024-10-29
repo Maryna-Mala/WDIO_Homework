@@ -1,0 +1,10 @@
+{
+    // To support Cucumber steps autocomplete
+    //
+  //marketplace.visualstudio.com/items?itemName=alexkrechik.cucumberautocomplete
+    "cucumberautocomplete.steps": [
+      "homework_1/test/features/step-definitions/*.specs.js"
+    ],
+    "cucumber.glue": ["homework_1/test/features/**/*.js"],
+    "cucumber.features": ["homework_1/test/features/*.feature"]
+  }
