@@ -18,18 +18,18 @@ export const config = {
             browserName: 'chrome',
             'goog:chromeOptions': {
                 args: [
-                    /* '--headless',
-                    '--disable-gpu', */
+                    '--headless',
+                    '--disable-gpu',
                     '--window-size=1920,1080',
                 ],
             },
         },
-        /* {
+        {
             browserName: 'firefox',
             'moz:firefoxOptions': {
                 args: ['-headless'],
             },
-        }, */
+        },
     ],
     logLevel: 'error',
     bail: 0,
